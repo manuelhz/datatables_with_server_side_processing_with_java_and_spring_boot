@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello DataTables!</h1>
+    <table id="myTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Name</th>
+                <th>e-mail</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>            
+        </tbody>
+    </table>
+</body>
+
+<footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://github.com/darrachequesne/spring-data-jpa-datatables/blob/main/jquery.spring-friendly.js"></script>
+    <script>
+        let table = new DataTable('#myTable', {
+            ajax: '/api/customers',
+            
+            colums: [
+                { data: 'customerId' },
+                { data: 'name' },
+                { data: 'email' },
+                { data: 'phoneNumber' },
+                { data: 'address' }
+            ]
+        });
+    </script>
+</footer>
+
+</html>
